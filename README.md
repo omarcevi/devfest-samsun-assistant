@@ -9,6 +9,10 @@ A single [ADK](https://google.github.io/adk-docs) agent that answers questions a
 
 ## Run the lab in Cloud Shell
 
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/omarcevi/devfest-samsun-assistant.git&cloudshell_git_branch=main&cloudshell_tutorial=tutorial.md&cloudshell_workspace=.&show=ide%2Cterminal)
+
+The button clones this repo and opens `tutorial.md` next to the terminal. Tick **Trust repo**. By hand:
+
 ```bash
 gcloud config set project YOUR_PROJECT_ID
 git clone https://github.com/omarcevi/devfest-samsun-assistant.git

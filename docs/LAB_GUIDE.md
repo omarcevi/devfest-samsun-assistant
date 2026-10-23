@@ -44,6 +44,10 @@ The DevFest Samsun Assistant answers questions about this event's real schedule:
 
 ## Step 2: Open Cloud Shell and get the code
 
+**Fastest:** click **[Open in Google Cloud Shell](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/omarcevi/devfest-samsun-assistant.git&cloudshell_git_branch=main&cloudshell_tutorial=tutorial.md&cloudshell_workspace=.&show=ide%2Cterminal)**. In the dialog, tick **Trust repo** and click **Confirm**. (Without *Trust repo*, Cloud Shell runs in ephemeral mode and deletes your files when the session ends.) If asked, click **Authorize**. Cloud Shell clones the code and opens a step-by-step tutorial next to the terminal: follow it from there.
+
+**Or do it by hand:**
+
 1. Click **Activate Cloud Shell** (the `>_` icon) at the top right of the console. If asked, click **Continue** and then **Authorize**.
 2. Point Cloud Shell at your project. Replace `YOUR_PROJECT_ID` with your Project ID:
 
