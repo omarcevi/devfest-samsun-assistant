@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Shared settings for the stage scripts. Override any of them with environment variables.
 # shellcheck disable=SC2034  # these are read by the scripts that source this file
 PROJECT="${GOOGLE_CLOUD_PROJECT:-$(gcloud config get-value project 2>/dev/null)}"

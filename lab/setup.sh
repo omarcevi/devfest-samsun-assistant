@@ -62,7 +62,7 @@ ok ".env written"
 
 # 6. Next step. A new tool folder only reaches your shell's PATH after you reload it.
 case ":$PATH_AT_START:" in
-  *":$HOME/.local/bin:"*) echo "✅ Ready. Next: uv run adk web --port 8080" ;;
+  *":$HOME/.local/bin:"*) echo "✅ Ready. Next: uv run adk web --port 8080 --allow_origins \"*\"" ;;
   *) echo "✅ Ready. Run this once:  source ~/.profile"
-     echo "   Next: uv run adk web --port 8080" ;;
+     echo "   Next: uv run adk web --port 8080 --allow_origins \"*\"" ;;
 esac
