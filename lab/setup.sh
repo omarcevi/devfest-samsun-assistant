@@ -10,6 +10,7 @@ APIS=(
   telemetry.googleapis.com           # where the agent sends its traces
   logging.googleapis.com             # agent logs
   cloudresourcemanager.googleapis.com # lets the deploy grant the agent its IAM roles
+  apphub.googleapis.com              # the agent's Dashboard tab asks for it
 )
 
 ok()   { echo "✅ $*"; }
@@ -33,7 +34,7 @@ ok "Billing is linked"
 # 3. APIs (takes about a minute the first time)
 gcloud services enable "${APIS[@]}" --project "$PROJECT" --quiet >/dev/null 2>&1 \
   || fail "Couldn't turn on the Google Cloud APIs. Wait a minute and run ./lab/setup.sh again."
-ok "APIs turned on: Agent Platform, Trace, Telemetry, Logging, Resource Manager"
+ok "APIs turned on: Agent Platform, Trace, Telemetry, Logging, Resource Manager, App Hub"
 
 # 4. uv, the agent's Python packages and the Agents CLI
 export PATH="$HOME/.local/bin:$PATH"

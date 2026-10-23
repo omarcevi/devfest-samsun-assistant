@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Demo 5, Evaluate: the time_awareness case fails on v1-bug and passes on v2-fixed.
-#   ./scripts/demo5_eval.sh          the time_awareness case on both tags (about 45 s)
-#   ./scripts/demo5_eval.sh full     every eval case on the current code (about 40 s)
+#   ./scripts/demo5_eval.sh v1-bug     the time_awareness case on v1-bug (about 35 s): fails
+#   ./scripts/demo5_eval.sh v2-fixed   the same case on v2-fixed (about 35 s): passes
+#   ./scripts/demo5_eval.sh            both, one after the other (about 75 s)
+#   ./scripts/demo5_eval.sh full       every eval case on the current code (about 45 s)
 set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 source scripts/config.sh
@@ -23,7 +25,8 @@ if ! git diff --quiet HEAD -- app; then
   echo "❌ app/ has uncommitted changes. Commit or stash them first."; exit 1
 fi
 trap 'git checkout -q HEAD -- app' EXIT   # always put the current code back
-for tag in v1-bug v2-fixed; do
+TAGS="${1:-v1-bug v2-fixed}"
+for tag in $TAGS; do
   git checkout -q "$tag" -- app
   say "$tag   agents-cli eval run: time_awareness   (clock: Saturday 14:00)"
   run_eval evals/time_awareness.json "artifacts/eval_$tag"
