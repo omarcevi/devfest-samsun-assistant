@@ -9,7 +9,7 @@ A single [ADK](https://google.github.io/adk-docs) agent that answers questions a
 
 ## Run the lab in Cloud Shell
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/omarcevi/devfest-samsun-assistant.git&cloudshell_git_branch=main&cloudshell_tutorial=tutorial.md&cloudshell_workspace=.&show=ide%2Cterminal)
+[![Open in Cloud Shell](https://www.gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/omarcevi/devfest-samsun-assistant.git&cloudshell_git_branch=main&cloudshell_tutorial=tutorial.md&cloudshell_workspace=.&show=ide%2Cterminal)
 
 The button clones this repo and opens `tutorial.md` next to the terminal. Tick **Trust repo**. By hand:
 
@@ -18,9 +18,10 @@ gcloud config set project YOUR_PROJECT_ID
 git clone https://github.com/omarcevi/devfest-samsun-assistant.git
 cd devfest-samsun-assistant
 ./lab/setup.sh
-uv run adk web --port 8080          # then Web preview › Preview on port 8080
-agents-cli deploy --agent-identity  # 5–10 minutes
-./lab/cleanup.sh                    # when you're done
+source ~/.profile                                # use the Agents CLI setup.sh installed
+uv run adk web --port 8080 --allow_origins "*"   # then Web preview › Preview on port 8080
+agents-cli deploy --agent-identity -i            # about 5 minutes
+./lab/cleanup.sh                                 # when you're done
 ```
 
 ## What's inside
