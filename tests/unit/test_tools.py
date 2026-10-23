@@ -1,7 +1,7 @@
 """Unit tests for the agent's tools. No network, no Gemini."""
 
 from app import tools
-from app.tools import get_session, search_sessions, submit_feedback
+from app.tools import get_current_time, get_session, search_sessions, submit_feedback
 
 SAT, SUN = "2026-10-24", "2026-10-25"
 
@@ -59,6 +59,18 @@ def test_submit_feedback_rejects_bad_input():
     assert "error" in submit_feedback("sat-1030-kat1", 0)
     assert "error" in submit_feedback("sat-1030-kat1", 6)
     assert "error" in submit_feedback("nope", 3)
+
+
+def test_current_time_uses_demo_now(monkeypatch):
+    monkeypatch.setenv("DEMO_NOW", "2026-10-24T14:00:00+03:00")
+    assert get_current_time() == "Saturday 2026-10-24 14:00"
+
+
+def test_current_time_falls_back_to_istanbul_clock(monkeypatch):
+    monkeypatch.delenv("DEMO_NOW", raising=False)
+    day, date, time = get_current_time().split()
+    assert day in {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
+    assert len(date) == 10 and len(time) == 5
 
 
 def test_agenda_rules():

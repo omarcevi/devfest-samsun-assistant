@@ -1,7 +1,10 @@
 """Tools the agent can call. ADK builds each tool's schema from its type hints and docstring."""
 
 import json
+import os
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 AGENDA = json.loads((Path(__file__).parent.parent / "data" / "agenda.json").read_text())
 SESSIONS = AGENDA["sessions"]
@@ -51,3 +54,10 @@ def submit_feedback(session_id: str, rating: int) -> dict:
     FEEDBACK.setdefault(session_id, []).append(rating)
     return {"status": "saved", "session_id": session_id, "rating": rating}
 
+
+def get_current_time() -> str:
+    """Returns the current day, date and time at DevFest Samsun (Europe/Istanbul)."""
+    # DEMO_NOW pins the clock for a reproducible demo, e.g. 2026-10-24T14:00:00+03:00
+    demo_now = os.environ.get("DEMO_NOW")
+    now = datetime.fromisoformat(demo_now) if demo_now else datetime.now(ZoneInfo("Europe/Istanbul"))
+    return now.strftime("%A %Y-%m-%d %H:%M")

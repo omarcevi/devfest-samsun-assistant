@@ -94,6 +94,20 @@
       }
     },
     {
+      "eval_case_id": "time_awareness",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "It's Saturday and I'm at DevFest. I'm into AI agents. What should I see today?"
+          }
+        ]
+      },
+      "metadata": {
+        "rubric": "It is now 14:00 on Saturday 2026-10-24. FAIL if the answer recommends any session that already ended (anything before 14:00 that Saturday). Saying a session has already ended is fine."
+      }
+    },
+    {
       "eval_case_id": "feedback",
       "prompt": {
         "role": "user",
