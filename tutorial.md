@@ -17,6 +17,8 @@ on, who gives them, when, and on which floor. It's built with the **Agent Develo
 
 ![Architecture](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/architecture.svg)
 
+[Open the diagram full size](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/architecture.svg)
+
 | Step | What you do | Time |
 |---|---|---|
 | 1 | Select your project and run the setup script | 3 min |
@@ -65,6 +67,8 @@ Its tools are plain Python functions in
 
 ![The agent loop](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-3-local.svg)
 
+[Open the diagram full size](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-3-local.svg)
+
 1. Start the ADK dev UI:
    ```bash
    uv run adk web --port 8080 --allow_origins "*"
@@ -86,6 +90,8 @@ Its tools are plain Python functions in
 ## Step 3 · Deploy it to Agent Runtime
 
 ![What agents-cli deploy does](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-4-deploy.svg)
+
+[Open the diagram full size](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-4-deploy.svg)
 
 Run:
 
@@ -129,6 +135,8 @@ agents-cli deploy --status
    after you chat.
 
 ![Memory and traces](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-5-console.svg)
+
+[Open the diagram full size](https://omarcevi.dev/workshops/devfest-samsun-agent/diagrams/step-5-console.svg)
 
 You've now seen, on your own agent, the questions from the talk:
 **where it runs** (Agent Runtime), **what it remembers** (Sessions and Memory Bank), **who it
