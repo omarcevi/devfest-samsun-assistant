@@ -8,7 +8,7 @@ source scripts/config.sh
 
 if [ "${1:-}" = "web" ]; then
   say "adk web: open http://localhost:8080 and pick 'app'"
-  exec uv run adk web --port 8080 --allow_origins "*"
+  exec uv run adk web --port 8080
 fi
 say "The agent, running locally"
 uv run python scripts/ask_local.py "Which talks are about AI agents?" 2>/dev/null
