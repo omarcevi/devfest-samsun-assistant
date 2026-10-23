@@ -168,7 +168,28 @@ All are env vars on the proxy (`gcloud run services update … --update-env-vars
 
 The proxy runs on **one instance** (`max-instances=1`, concurrency 300), so these in-memory limits are exact.
 
-> ⚠️ Agent Runtime quota: "Query Reasoning Engine requests" = **30/min/project/region** in this project. See the load-test notes below.
+### Capacity: read this before the talk
+
+The limit isn't the proxy, it's this project's Agent Runtime quotas in us-central1. A self-serve increase is **not available** ("NOT_ENOUGH_USAGE_HISTORY"):
+
+| Quota | Limit |
+|---|---|
+| Query Reasoning Engine requests | **30/min** (one per chat message) |
+| Session Event Append requests | **100/min** (≈ 5 per answer) |
+| Session Write requests | 100/min (new chats; the proxy creates sessions through the Sessions API, not `:query`) |
+
+So the room gets roughly **20–25 answers per minute** in total. The proxy's global cap is 24/min; above that people see "Lots of questions right now! Wait a minute and try again." Mention it on the slide ("it's rate-limited, be patient").
+
+**Load test** (Oct 24, 00:25, Locust, 100 simulated phones from one IP, 20–40 s think time, 5 min, against the pre-Sessions-API proxy):
+
+| Metric | Result |
+|---|---|
+| Completed answers | 107 (~21/min) |
+| Time to first text | p50 8.2 s, p95 52 s |
+| Full answer | p50 9.7 s, p95 53 s |
+| Failures | intended 429s from the proxy's limits, plus Agent Runtime quota "busy"/502 |
+| Proxy health | no crashes; 1 instance handled it |
+| Cost | the run was ~110 Gemini Flash conversations, a few cents. Expected event cost: backup at min 1 instance + proxy at min 1 instance for 48 h, about $10–15, plus Gemini. Budget alert: 1,500 TRY/month on `cloud-agents-project`, alerts at 25/50/90/100 % (Billing › Budgets). |
 
 ### After the event
 

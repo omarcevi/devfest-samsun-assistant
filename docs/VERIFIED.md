@@ -75,6 +75,12 @@ Everything here was run tonight (Oct 23–24, 2026) against `cloud-agents-projec
   - It is granted **on the one agent** with `reasoningEngines/ID:setIamPolicy` to `samsun-chat-proxy@cloud-agents-project.iam.gserviceaccount.com`.
 - **Quota** (`gcloud alpha services quota list --service=aiplatform.googleapis.com`): **"Query Reasoning Engine requests" = 30/min/project/region** in this project. The research notes said 90; the live value is 30.
 
+## Model reliability
+
+- `gemini-3.6-flash` had occasional multi-minute stalls tonight: one local run took 2 min 55 s, and the integration tests saw one transient model error.
+- `app/agent.py` now sets `generate_content_config=GenerateContentConfig(http_options=HttpOptions(timeout=40_000, retry_options=HttpRetryOptions(attempts=3)))`. google-genai retries client-side timeouts (tested).
+- The `v1-bug`/`v2-fixed` tags predate this commit. Their diff is still only the clock fix.
+
 ## Tracing
 
 - On by default with agents-cli. Spans: `invoke_workflow` → `invoke_agent` → `call_llm`/`generate_content gemini-3.6-flash` → `execute_tool <name>`.
