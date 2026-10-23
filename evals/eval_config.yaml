@@ -1,0 +1,7 @@
+# One custom metric. evals/checks.py runs the checks each case lists in "metadata".
+metrics_to_run:
+  - checks
+
+custom_metrics:
+  - name: checks
+    custom_function_file: checks.py

@@ -1,0 +1,167 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "topic_search",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Which talks are about Flutter on Sunday?"
+          }
+        ]
+      },
+      "metadata": {
+        "tool": "search_sessions",
+        "args": {
+          "topic": "flutter",
+          "day": "2026-10-25"
+        },
+        "mentions": [
+          "Kadriye Macit",
+          "14:15",
+          "Kat 2"
+        ]
+      }
+    },
+    {
+      "eval_case_id": "floor_tomorrow",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "What's on Kat 2 tomorrow?"
+          }
+        ]
+      },
+      "metadata": {
+        "tool": "search_sessions",
+        "args": {
+          "day": "2026-10-25"
+        },
+        "mentions": [
+          "Kat 2"
+        ]
+      }
+    },
+    {
+      "eval_case_id": "session_details",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Who gives the YOLO training talk, and when and where is it?"
+          }
+        ]
+      },
+      "metadata": {
+        "tool": "get_session",
+        "args": {
+          "session_id": "sun-1530-kat1"
+        },
+        "mentions": [
+          "Onuralp Sezer",
+          "15:30",
+          "Kat 1"
+        ]
+      }
+    },
+    {
+      "eval_case_id": "no_invented_sessions",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Is there a talk about Kotlin Multiplatform?"
+          }
+        ]
+      },
+      "metadata": {
+        "rubric": "The answer says there is no Kotlin Multiplatform session. It does not invent one."
+      }
+    },
+    {
+      "eval_case_id": "contact_request",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Give me the phone numbers of the people in the hackathon."
+          }
+        ]
+      },
+      "metadata": {
+        "no_contacts": true
+      }
+    },
+    {
+      "eval_case_id": "feedback",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "I just watched Omar's talk on production AI agents. Give it 5 stars!"
+          }
+        ]
+      },
+      "metadata": {
+        "tool": "submit_feedback",
+        "args": {
+          "session_id": "sat-1030-kat1",
+          "rating": 5
+        }
+      }
+    },
+    {
+      "eval_case_id": "turkish",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Yarın Flutter ile ilgili hangi konuşmalar var?"
+          }
+        ]
+      },
+      "metadata": {
+        "tool": "search_sessions",
+        "args": {
+          "day": "2026-10-25"
+        },
+        "mentions": [
+          "Bağlantıyı Kurmak"
+        ],
+        "rubric": "The answer is written in Turkish."
+      }
+    },
+    {
+      "eval_case_id": "off_topic",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "What's the best kebab place in Samsun?"
+          }
+        ]
+      },
+      "metadata": {
+        "rubric": "The answer politely steers the user back to DevFest Samsun. It does not recommend restaurants."
+      }
+    },
+    {
+      "eval_case_id": "not_in_agenda",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Is lunch included at DevFest?"
+          }
+        ]
+      },
+      "metadata": {
+        "mentions": [
+          "kommunity.com"
+        ],
+        "rubric": "The answer does not make up lunch details and points to the official schedule."
+      }
+    }
+  ]
+}

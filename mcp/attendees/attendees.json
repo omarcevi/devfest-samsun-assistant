@@ -1,0 +1,145 @@
+{
+  "note": "Entirely fictional people for a demo. None of them exist. Never add real people here.",
+  "attendees": [
+    {
+      "name": "Deneme Demir",
+      "email": "deneme.demir@example.com",
+      "phone": "+90 555 010 0001",
+      "hackathon_team": "Team Martı",
+      "fictional": true
+    },
+    {
+      "name": "Örnek Kaya",
+      "email": "ornek.kaya@example.com",
+      "phone": "+90 555 010 0002",
+      "hackathon_team": "Team Bulut",
+      "fictional": true
+    },
+    {
+      "name": "Test Yıldız",
+      "email": "test.yildiz@example.com",
+      "phone": "+90 555 010 0003",
+      "hackathon_team": "Team Dalga",
+      "fictional": true
+    },
+    {
+      "name": "Sahte Şahin",
+      "email": "sahte.sahin@example.com",
+      "phone": "+90 555 010 0004",
+      "hackathon_team": "Team Fener",
+      "fictional": true
+    },
+    {
+      "name": "Kurgu Çelik",
+      "email": "kurgu.celik@example.com",
+      "phone": "+90 555 010 0005",
+      "hackathon_team": "Team Kuzgun",
+      "fictional": true
+    },
+    {
+      "name": "Hayali Aydın",
+      "email": "hayali.aydin@example.com",
+      "phone": "+90 555 010 0006",
+      "hackathon_team": "Team Martı",
+      "fictional": true
+    },
+    {
+      "name": "Taslak Öztürk",
+      "email": "taslak.ozturk@example.com",
+      "phone": "+90 555 010 0007",
+      "hackathon_team": "Team Bulut",
+      "fictional": true
+    },
+    {
+      "name": "Placeholder Polat",
+      "email": "placeholder.polat@example.com",
+      "phone": "+90 555 010 0008",
+      "hackathon_team": "Team Dalga",
+      "fictional": true
+    },
+    {
+      "name": "Mock Arslan",
+      "email": "mock.arslan@example.com",
+      "phone": "+90 555 010 0009",
+      "hackathon_team": "Team Fener",
+      "fictional": true
+    },
+    {
+      "name": "Dummy Doğan",
+      "email": "dummy.dogan@example.com",
+      "phone": "+90 555 010 0010",
+      "hackathon_team": "Team Kuzgun",
+      "fictional": true
+    },
+    {
+      "name": "Fixture Koç",
+      "email": "fixture.koc@example.com",
+      "phone": "+90 555 010 0011",
+      "hackathon_team": "Team Martı",
+      "fictional": true
+    },
+    {
+      "name": "Sample Kurt",
+      "email": "sample.kurt@example.com",
+      "phone": "+90 555 010 0012",
+      "hackathon_team": "Team Bulut",
+      "fictional": true
+    },
+    {
+      "name": "Lorem Ipsum",
+      "email": "lorem.ipsum@example.com",
+      "phone": "+90 555 010 0013",
+      "hackathon_team": "Team Dalga",
+      "fictional": true
+    },
+    {
+      "name": "Foo Bar",
+      "email": "foo.bar@example.com",
+      "phone": "+90 555 010 0014",
+      "hackathon_team": "Team Fener",
+      "fictional": true
+    },
+    {
+      "name": "Baz Qux",
+      "email": "baz.qux@example.com",
+      "phone": "+90 555 010 0015",
+      "hackathon_team": "Team Kuzgun",
+      "fictional": true
+    },
+    {
+      "name": "Jane Example",
+      "email": "jane.example@example.com",
+      "phone": "+90 555 010 0016",
+      "hackathon_team": "Team Martı",
+      "fictional": true
+    },
+    {
+      "name": "John Placeholder",
+      "email": "john.placeholder@example.com",
+      "phone": "+90 555 010 0017",
+      "hackathon_team": "Team Bulut",
+      "fictional": true
+    },
+    {
+      "name": "Ada Fiktif",
+      "email": "ada.fiktif@example.com",
+      "phone": "+90 555 010 0018",
+      "hackathon_team": "Team Dalga",
+      "fictional": true
+    },
+    {
+      "name": "Mustafa Mockoğlu",
+      "email": "mustafa.mockoglu@example.com",
+      "phone": "+90 555 010 0019",
+      "hackathon_team": "Team Fener",
+      "fictional": true
+    },
+    {
+      "name": "Zeynep Stubova",
+      "email": "zeynep.stubova@example.com",
+      "phone": "+90 555 010 0020",
+      "hackathon_team": "Team Kuzgun",
+      "fictional": true
+    }
+  ]
+}
