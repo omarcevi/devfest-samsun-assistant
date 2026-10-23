@@ -124,7 +124,9 @@ async def create_session(body: SessionIn, request: Request):
         return error(403, "ended", ENDED_MESSAGE)
     if not valid_user(body.user_id):
         return error(400, "bad_user", "Invalid user id.")
-    if not record([("session-ip:" + client_ip(request), IP_PER_MINUTE, IP_PER_DAY)]):
+    # The Sessions API allows 100 writes/min; keep new chats well under that.
+    if not record([("session-ip:" + client_ip(request), IP_PER_MINUTE, IP_PER_DAY),
+                   ("global-session", 60, 5000)]):
         return error(429, "rate_limited", "Too many new chats. Wait a minute and try again.")
     # The Sessions API has its own quota, so the agent's 30 queries/min stay for chat.
     payload = {"userId": agent_user(body.user_id)}

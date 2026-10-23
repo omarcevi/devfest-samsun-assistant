@@ -2,12 +2,11 @@
 
 Copied from the final code on `main` (= `v2-fixed`). Each block is ≤ 15 lines where possible; `...` marks a trim.
 
-## 1. `app/agent.py` (whole file, 28 lines)
+## 1. `app/agent.py` (whole file, 30 lines)
 
 ```python
 from google.adk.agents import Agent
 from google.adk.apps import App
-from google.adk.models import Gemini
 from google.genai import types
 
 from app.attendees import attendee_tools
@@ -16,7 +15,10 @@ from app.tools import get_current_time, get_session, search_sessions, submit_fee
 
 root_agent = Agent(
     name="samsun_assistant",
-    model=Gemini(model="gemini-3.6-flash", retry_options=types.HttpRetryOptions(attempts=3)),
+    model="gemini-3.6-flash",
+    # A stalled Gemini call is cut off after 40 s and retried (3 tries in total).
+    generate_content_config=types.GenerateContentConfig(http_options=types.HttpOptions(
+        timeout=40_000, retry_options=types.HttpRetryOptions(attempts=3))),
     instruction="""You help attendees of DevFest Samsun 2026 (Saturday 2026-10-24 and Sunday 2026-10-25).
 Only recommend sessions that your tools return. Never invent sessions or speaker bios.
 Suggest at most 3 sessions. For each, give the speaker, day, time and floor (Kat 1 or Kat 2).
@@ -33,7 +35,7 @@ If a question isn't about DevFest, politely steer back to the event.""",
 app = App(name="app", root_agent=root_agent)
 ```
 
-### 1b. Trimmed to 15 lines for the "Agent in 15 lines" slide (imports, retries and the optional MCP tool left out)
+### 1b. Trimmed to 15 lines for the "Agent in 15 lines" slide (imports, timeout and the optional MCP tool left out)
 
 ```python
 root_agent = Agent(
