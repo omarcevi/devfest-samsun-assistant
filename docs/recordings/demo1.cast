@@ -1,0 +1,9 @@
+{"version":3,"term":{"cols":80,"rows":24},"timestamp":1792791439,"command":"./scripts/demo1_local.sh","env":{"SHELL":"/bin/zsh"}}
+[0.915, "o", "\r\n\u001b[1mThe agent, running locally\u001b[0m\r\n"]
+[1.108, "o", "\u001b[36m👤 Which talks are about AI agents?\u001b[0m\r\n"]
+[2.941, "o", "\u001b[2m   🔧 get_current_time({})\u001b[0m\r\n"]
+[2.149, "o", "\u001b[2m   🔧 search_sessions({'day': '2026-10-24', 'topic': 'ai'})\u001b[0m\r\n\u001b[2m   🔧 search_sessions({'day': '2026-10-25', 'topic': 'ai'})\u001b[0m\r\n"]
+[2.225, "o", "\u001b[2m   🔧 search_sessions({'topic': '', 'day': '2026-10-24'})\u001b[0m\r\n\u001b[2m   🔧 search_sessions({'topic': '', 'day': '2026-10-25'})\u001b[0m\r\n"]
+[2.299, "o", "\u001b[2m   🔧 get_session({'session_id': 'sat-1030-kat1'})\u001b[0m\r\n\u001b[2m   🔧 get_session({'session_id': 'sat-1130-kat1'})\u001b[0m\r\n\u001b[2m   🔧 get_session({'session_id': 'sun-1415-kat1'})\u001b[0m\r\n"]
+[4.115, "o", "🤖 Here are 3 talks about AI agents at DevFest Samsun 2026:\r\n\r\n1. **The Google Cloud Stack for Production AI Agents**\r\n   - **Speaker:** Omar Elcircevi\r\n   - **Day:** Saturday, 2026-10-24\r\n   - **Time:** 10:30\r\n   - **Floor:** Kat 1\r\n\r\n2. **AI Kod Yazıyor, Peki Kuralları Kim Koyuyor? Çok Modüllü Android Projelerinde Ajan Disiplini**\r\n   - **Speaker:** Kaan Enes Kapıcı\r\n   - **Day:** Saturday, 2026-10-24\r\n   - **Time:** 11:30\r\n   - **Floor:** Kat 1\r\n\r\n3. **Not Risky Anymore: Enforcing Native IAM Boundaries for Production AI Agents**\r\n   - **Speaker:** Alper SARI\r\n   - **Day:** Sunday, 2026-10-25\r\n   - **Time:** 14:15\r\n   - **Floor:** Kat 1\r\n\r\nLet me know if you need any more recommendations!\r\n"]
+[0.244, "x", "0"]

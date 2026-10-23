@@ -1,0 +1,6 @@
+{"version":3,"term":{"cols":80,"rows":24},"timestamp":1792791843,"command":"./scripts/demo5_eval.sh","env":{"SHELL":"/bin/zsh"}}
+[0.418, "o", "\r\n\u001b[1mv1-bug   agents-cli eval run: time_awareness   (clock: Saturday 14:00)\u001b[0m\r\n"]
+[25.300, "o", "  ❌  time_awareness   ← judge: The answer recommended two sessions starting at 10:30 and 11:30, which both occurred before the current time of 14:00 on Saturday 2026-10-24.\r\n\r\n  0/1 passed\r\n"]
+[0.024, "o", "\r\n\u001b[1mv2-fixed   agents-cli eval run: time_awareness   (clock: Saturday 14:00)\u001b[0m\r\n"]
+[34.989, "o", "  ✅  time_awareness\r\n\r\n  1/1 passed\r\n"]
+[0.026, "x", "0"]

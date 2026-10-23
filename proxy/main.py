@@ -35,7 +35,8 @@ PER_DAY = int(os.environ.get("PER_DAY", "60"))  # per user
 # Venue Wi-Fi puts the whole room behind one IP, so the per-IP limit is much looser.
 IP_PER_MINUTE = int(os.environ.get("IP_PER_MINUTE", "40"))
 IP_PER_DAY = int(os.environ.get("IP_PER_DAY", "1500"))
-GLOBAL_PER_MINUTE = int(os.environ.get("GLOBAL_PER_MINUTE", "80"))  # Agent Runtime allows 90 queries/min
+# Agent Runtime allows 30 queries/min and 100 session-event writes/min (about 5 per answer).
+GLOBAL_PER_MINUTE = int(os.environ.get("GLOBAL_PER_MINUTE", "24"))
 GLOBAL_PER_DAY = int(os.environ.get("GLOBAL_PER_DAY", "4000"))
 ENDED_MESSAGE = "The DevFest Samsun demo has ended. The code is on GitHub."
 
@@ -123,15 +124,15 @@ async def create_session(body: SessionIn, request: Request):
         return error(403, "ended", ENDED_MESSAGE)
     if not valid_user(body.user_id):
         return error(400, "bad_user", "Invalid user id.")
-    # Creating a session is also an Agent Runtime query, so it counts toward the global budget.
-    if not record([("session-ip:" + client_ip(request), IP_PER_MINUTE, IP_PER_DAY),
-                   ("global", GLOBAL_PER_MINUTE, GLOBAL_PER_DAY)]):
+    if not record([("session-ip:" + client_ip(request), IP_PER_MINUTE, IP_PER_DAY)]):
         return error(429, "rate_limited", "Too many new chats. Wait a minute and try again.")
-    payload = {"class_method": "async_create_session", "input": {"user_id": agent_user(body.user_id)}}
-    response = await client.post(f"{API}/v1/{ENGINE}:query", headers=await auth_headers(), json=payload)
+    # The Sessions API has its own quota, so the agent's 30 queries/min stay for chat.
+    payload = {"userId": agent_user(body.user_id)}
+    response = await client.post(f"{API}/v1/{ENGINE}/sessions", headers=await auth_headers(), json=payload)
     if response.status_code != 200:
         return error(502, "upstream", "The assistant is not reachable right now. Try again in a minute.")
-    session_id = response.json()["output"]["id"]
+    # The reply is a long-running operation named .../sessions/SESSION_ID/operations/...
+    session_id = response.json()["name"].split("/sessions/")[1].split("/")[0]
     if len(sessions) > 50_000:
         sessions.pop(next(iter(sessions)))  # forget the oldest chat
     sessions[session_id] = {"user_id": body.user_id, "turns": 0}
