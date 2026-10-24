@@ -8,8 +8,8 @@ You'll take a ready-made agent, the **DevFest Samsun Assistant**, and run it in 
 ## What you need
 
 - A laptop with a browser. Chrome works best.
-- A **personal** Google account (Gmail). Work and school accounts often block Cloud Shell or credits.
-- The credit link in Step 1.
+- A **personal** Google account (Gmail). Work and school accounts often block Cloud Shell or billing.
+- A Google Cloud billing account. New to Google Cloud? The free trial in Step 1 gives you one.
 
 ## The agent
 
@@ -19,7 +19,7 @@ The DevFest Samsun Assistant answers questions about this event's real schedule:
 
 | Step | What you do | Time |
 |---|---|---|
-| 1 | Get your credits and a project | 5 min |
+| 1 | Get a project with billing | 5 min |
 | 2 | Open Cloud Shell and get the code | 3 min |
 | 3 | Talk to your agent locally | 5 min |
 | 4 | Deploy it to Agent Runtime | 2 min to start, 5–10 min to finish |
@@ -28,15 +28,15 @@ The DevFest Samsun Assistant answers questions about this event's real schedule:
 
 ---
 
-## Step 1: Get your credits and a project
+## Step 1: Get a project with billing
 
-1. Open the credit link while signed in with your personal Google account: **[CREDIT_LINK]**
-2. Follow the page to accept the credits. This creates a billing account that uses them.
-3. Open the Google Cloud console: <https://console.cloud.google.com>
+1. Open the Google Cloud console, signed in with your personal Google account: <https://console.cloud.google.com>
+2. You need a billing account. If you already have one, use it: this lab costs a few cents if you clean up at the end. If you're new to Google Cloud, start the free trial at <https://cloud.google.com/free>. It gives new accounts trial credit and asks for a card to verify your identity.
+3. Already have a project with billing linked? You can use it and skip to Step 2.
 4. Create a project:
    1. Click the project picker at the top of the page, then **New project**.
    2. **Project name:** `devfest-samsun-agent`
-   3. **Billing account:** pick the one with your credits.
+   3. **Billing account:** pick your billing account or your free trial account.
    4. Click **Create**.
 5. Note your **Project ID**. It's shown under the name and may have numbers added, for example `devfest-samsun-agent-482913`.
 
@@ -139,7 +139,7 @@ You've now seen the questions from the talk answered on your own agent:
 
 ## Step 6: Clean up
 
-Your credits are limited. When you're done, delete the agent:
+When you're done, delete the agent so nothing keeps running:
 
 ```bash
 ./lab/cleanup.sh
@@ -159,7 +159,7 @@ Use the shared assistant on your phone: **[omarcevi.dev/demos/devfest-samsun-age
 
 | What you see | What to do |
 |---|---|
-| The setup script says billing isn't linked | In the console, go to **Billing › Link a billing account**, pick your credits account, then run `./lab/setup.sh` again. |
+| The setup script says billing isn't linked | In the console, go to **Billing › Link a billing account**, pick your billing account, then run `./lab/setup.sh` again. |
 | `PERMISSION_DENIED` or "API not enabled" right after setup | New APIs can take a minute to turn on. Wait, then try again. |
 | `429` or `RESOURCE_EXHAUSTED` | You hit a Gemini rate limit. Wait 30 seconds and try again. |
 | Web preview shows an error page | Check that `adk web` is still running in Cloud Shell and that you used port 8080. |

@@ -34,7 +34,7 @@ The guide has the same steps on one page, with troubleshooting:
 
 ## Step 1 · Select your project and set up
 
-Select the project you created with your credits. It must have billing linked.
+Select the project you created for this lab. It must have billing linked (your own billing account or the [free trial](https://cloud.google.com/free)).
 
 <walkthrough-project-setup billing="true"></walkthrough-project-setup>
 
@@ -144,7 +144,7 @@ acts as** (its Agent Identity) and **what it's doing** (traces).
 
 ## Step 5 · Clean up
 
-Your credits are limited. When you're done, delete the agent:
+When you're done, delete the agent so nothing keeps running:
 
 ```bash
 ./lab/cleanup.sh
