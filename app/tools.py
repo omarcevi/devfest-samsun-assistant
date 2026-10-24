@@ -32,7 +32,7 @@ def get_session(session_id: str) -> dict:
     """Gets the full details of one session: title, speaker, day, time and floor.
 
     Args:
-        session_id: The session id returned by search_sessions, e.g. "sat-1030-kat1".
+        session_id: The session id returned by search_sessions, e.g. "sat-1030-kat2".
     """
     for session in SESSIONS:
         if session["id"] == session_id:
@@ -44,7 +44,7 @@ def submit_feedback(session_id: str, rating: int) -> dict:
     """Records the user's 1-5 star rating for a session.
 
     Args:
-        session_id: The session id, e.g. "sat-1030-kat1".
+        session_id: The session id, e.g. "sat-1030-kat2".
         rating: A whole number from 1 (poor) to 5 (excellent).
     """
     if not 1 <= rating <= 5:

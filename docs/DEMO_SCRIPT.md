@@ -1,6 +1,6 @@
 # Stage runbook: The Google Cloud Stack for Production AI Agents
 
-DevFest Samsun 2026 · Saturday Oct 24 · 10:30–11:10 · Kat 1
+DevFest Samsun 2026 · Saturday Oct 24 · 10:30–11:10 · Kat 2 (moved from Kat 1 on Oct 24)
 
 All commands run from the repo root on your laptop, in `cloud-agents-project`. Timings were measured on Oct 23–24.
 

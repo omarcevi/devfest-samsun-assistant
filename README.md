@@ -1,6 +1,6 @@
 # DevFest Samsun 2026 Assistant
 
-The demo agent from **The Google Cloud Stack for Production AI Agents** (Omar Elcircevi, DevFest Samsun 2026, Saturday Oct 24, 10:30, Kat 1).
+The demo agent from **The Google Cloud Stack for Production AI Agents** (Omar Elcircevi, DevFest Samsun 2026, Saturday Oct 24, 10:30, Kat 2).
 
 A single [ADK](https://google.github.io/adk-docs) agent that answers questions about the real DevFest Samsun 2026 schedule: which talks are on, when, and on which floor. It runs locally with `adk web` and deploys to **Agent Runtime** with the **Agents CLI**.
 

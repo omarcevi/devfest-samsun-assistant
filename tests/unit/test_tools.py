@@ -15,7 +15,7 @@ def test_search_by_tag():
 
 
 def test_search_matches_any_word_in_title_or_tags():
-    assert ids(search_sessions("AI agents", SAT)) == ["sat-1030-kat1", "sat-1130-kat1"]
+    assert ids(search_sessions("AI agents", SAT)) == ["sat-1030-kat2", "sat-1130-kat2"]
 
 
 def test_search_empty_topic_returns_whole_day():
@@ -24,7 +24,7 @@ def test_search_empty_topic_returns_whole_day():
 
 
 def test_search_after_filter():
-    assert ids(search_sessions("", SAT, after="14:00")) == ["sat-1415-kat1", "sat-1530-kat1", "sat-1630-kat1"]
+    assert ids(search_sessions("", SAT, after="14:00")) == ["sat-1415-kat2", "sat-1530-kat2", "sat-1630-kat2"]
     assert ids(search_sessions("ai", SAT, after="12:00")) == []
 
 
@@ -40,9 +40,9 @@ def test_search_results_carry_speaker_time_and_floor():
 
 
 def test_get_session_details():
-    session = get_session("sat-1030-kat1")
+    session = get_session("sat-1030-kat2")
     assert session["speaker"] == "Omar Elcircevi"
-    assert (session["day"], session["start"], session["end"], session["floor"]) == (SAT, "10:30", "11:10", "Kat 1")
+    assert (session["day"], session["start"], session["end"], session["floor"]) == (SAT, "10:30", "11:10", "Kat 2")
 
 
 def test_get_session_unknown_id():
@@ -51,13 +51,13 @@ def test_get_session_unknown_id():
 
 def test_submit_feedback_valid():
     tools.FEEDBACK.clear()
-    assert submit_feedback("sat-1030-kat1", 5)["status"] == "saved"
-    assert tools.FEEDBACK == {"sat-1030-kat1": [5]}
+    assert submit_feedback("sat-1030-kat2", 5)["status"] == "saved"
+    assert tools.FEEDBACK == {"sat-1030-kat2": [5]}
 
 
 def test_submit_feedback_rejects_bad_input():
-    assert "error" in submit_feedback("sat-1030-kat1", 0)
-    assert "error" in submit_feedback("sat-1030-kat1", 6)
+    assert "error" in submit_feedback("sat-1030-kat2", 0)
+    assert "error" in submit_feedback("sat-1030-kat2", 6)
     assert "error" in submit_feedback("nope", 3)
 
 
@@ -74,10 +74,10 @@ def test_current_time_falls_back_to_istanbul_clock(monkeypatch):
 
 
 def test_agenda_rules():
-    """The agenda is real data: online/workshop formats match the title prefixes, no Saturday Kat 2."""
+    """The agenda is real data: online/workshop formats match the title prefixes; Saturday is all on Kat 2."""
     for s in tools.SESSIONS:
         assert s["format"] == ("online" if s["title"].startswith("[Çevrimiçi]") else
                                "workshop" if s["title"].startswith("[Workshop]") else "talk")
         assert s["tags"], s["id"]
-    assert not [s for s in tools.SESSIONS if s["day"] == SAT and s["floor"] == "Kat 2"]
+    assert not [s for s in tools.SESSIONS if s["day"] == SAT and s["floor"] == "Kat 1"]
     assert tools.AGENDA["source"].startswith("https://kommunity.com/")
