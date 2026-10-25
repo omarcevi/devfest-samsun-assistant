@@ -161,6 +161,4 @@ remove everything, shut the project down in
 You ran an ADK agent in Cloud Shell, deployed it to Agent Runtime with its own identity, and
 saw its sessions, memories and traces in Agent Platform.
 
-No laptop at hand later? Chat with the shared assistant on your phone:
-[omarcevi.dev/demos/devfest-samsun-agent](https://omarcevi.dev/demos/devfest-samsun-agent/).
 The code is on [GitHub](https://github.com/omarcevi/devfest-samsun-assistant).

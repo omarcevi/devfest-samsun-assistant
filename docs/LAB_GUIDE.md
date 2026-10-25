@@ -151,10 +151,6 @@ You can keep the agent until the end of DevFest on Sunday if you want to play wi
 
 ---
 
-## No laptop?
-
-Use the shared assistant on your phone: **[omarcevi.dev/demos/devfest-samsun-agent](https://omarcevi.dev/demos/devfest-samsun-agent)**
-
 ## Troubleshooting
 
 | What you see | What to do |
