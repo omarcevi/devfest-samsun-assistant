@@ -5,7 +5,6 @@ The demo agent from **The Google Cloud Stack for Production AI Agents** (Omar El
 A single [ADK](https://google.github.io/adk-docs) agent that answers questions about the real DevFest Samsun 2026 schedule: which talks are on, when, and on which floor. It runs locally with `adk web` and deploys to **Agent Runtime** with the **Agents CLI**.
 
 - **Hands-on lab:** <https://omarcevi.dev/workshops/devfest-samsun-agent>
-- **Chat with it on your phone:** <https://omarcevi.dev/demos/devfest-samsun-agent>
 
 ## Run the lab in Cloud Shell
 
